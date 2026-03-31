@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prediction Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Prediction Result</h1>
+      <div class="card">
+        <p><strong>Predicted Severity Level:</strong> {{ severity }}</p>
+        <h3>Fuzzy Membership Scores</h3>
+        <ul>
+          {% for label, score in memberships %}
+            <li>{{ label }}: {{ score }}</li>
+          {% endfor %}
+        </ul>
+        <a href="/" class="link">Try another patient</a>
+      </div>
+    </div>
+  </body>
+</html>

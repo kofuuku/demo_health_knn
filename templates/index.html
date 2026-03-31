@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Healthcare Risk Demo</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Healthcare Risk Assessment</h1>
+      <p class="subtitle">Simple demo using fuzzy KNN on patient vitals and history.</p>
+
+      <form method="post" action="/predict" class="card">
+        <div class="grid">
+          <label>Age <input type="number" name="age" required /></label>
+          <label>Gender
+            <select name="gender" required>
+              <option value="M">M</option>
+              <option value="F">F</option>
+            </select>
+          </label>
+          <label>Systolic BP <input type="number" name="systolic_bp" required /></label>
+          <label>Diastolic BP <input type="number" name="diastolic_bp" required /></label>
+          <label>Heart Rate <input type="number" name="heart_rate" required /></label>
+          <label>Respiratory Rate <input type="number" name="respiratory_rate" required /></label>
+          <label>Temperature (F) <input type="number" step="0.1" name="temperature" required /></label>
+          <label>SpO2 <input type="number" name="spo2" required /></label>
+          <label>BMI <input type="number" step="0.1" name="bmi" required /></label>
+          <label>Diabetes (0/1) <input type="number" min="0" max="1" name="has_diabetes" required /></label>
+          <label>Hypertension (0/1) <input type="number" min="0" max="1" name="has_hypertension" required /></label>
+          <label>Heart Disease (0/1) <input type="number" min="0" max="1" name="has_heart_disease" required /></label>
+          <label>Prior Hospitalizations <input type="number" name="prior_hospitalizations" required /></label>
+          <label>Smoker (0/1) <input type="number" min="0" max="1" name="smoker" required /></label>
+        </div>
+        <button type="submit">Predict Severity</button>
+      </form>
+    </div>
+  </body>
+</html>
